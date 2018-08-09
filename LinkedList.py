@@ -43,15 +43,13 @@ class LinkedList:
     def __getitem__(self,index):
         return self.get(index)
     def erase(self, index):
-        if index > self.length() or index <= 0:
-            print('False index')
+        if index >= self.length() or index < 0:
+            print('False erasing index')
             return False
-        elif self.length == 1:
-            return None
         else:
             pre_node = self.head
             cur_node = self.head.next
-            counter = 1
+            counter = 0
             while cur_node.next and counter != index:
                 pre_node = pre_node.next
                 cur_node = cur_node.next
@@ -62,16 +60,19 @@ class LinkedList:
     # def insert_node(self, index, data):
     # def set(self,index,data):
 
+if __name__ == "__main__":
+    myList = LinkedList()
+    myList.append(1)
+    myList.append(2)
+    myList.append(3)
+    myList.append(4)
+    myList.display()
+    # print(myList.length())
+    # print('Get index 3: ', myList.get(3))
+    myList.erase(1)
+    print('erase index 1: ')
+    myList.display()
 
-# if __name__ == "__main()__":
-myList = LinkedList()
-myList.append(1)
-myList.append(2)
-myList.append(3)
-myList.append(4)
-myList.display()
-print(myList.length())
-print('Get index 3: ', myList.get(3))
-myList.erase(2)
-print('erase index 3: ')
-myList.display()
+
+
+
