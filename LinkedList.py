@@ -72,7 +72,3 @@ if __name__ == "__main__":
     myList.erase(1)
     print('erase index 1: ')
     myList.display()
-
-
-
-
