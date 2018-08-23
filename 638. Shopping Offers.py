@@ -15,6 +15,7 @@ class Solution(object):
             return res
 
         d = {}
+        res = dfs(needs)
         def dfs(cur):
             val = sum(cur[i] * price[i] for i in range(len(needs)))  # cost without special
             for spec in special:
@@ -25,7 +26,6 @@ class Solution(object):
             d[tuple(cur)] = val
             return val
 
-        res = dfs(needs)
         return res
 
 
