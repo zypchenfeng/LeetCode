@@ -39,7 +39,7 @@ print('Right answer should be 14  ', sol.shoppingOffers(price, special, needs))
 price = [2,3,4]
 special = [[1,1,0,4],[2,2,1,9]]
 needs = [1,2,1]
-print('Right answer should be 11  ',sol.shoppingOffers(price, special, needs))
+print('Right answer should be 11  ', sol.shoppingOffers(price, special, needs))
 
 price = [2,3,4]
 special = []

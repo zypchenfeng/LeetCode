@@ -11,19 +11,42 @@ class Solution(object):
         is the cost of painting house 1 with color green, and so on... Find the minimum cost to paint
         all houses.
         """
-        if not costs or len(costs) == 0:
-            return 0
-        n = len(costs)
-        dp = [[0]*3]*n
-        dp[0] = costs[0]
-        for i in range(1, n):
-            dp[i][0] = min(dp[i - 1][1], dp[i - 1][2]) + costs[i][0]
-            dp[i][1] = min(dp[i - 1][0], dp[i - 1][2]) + costs[i][1]
-            dp[i][2] = min(dp[i - 1][0], dp[i - 1][1]) + costs[i][2]
-        return min(dp[n-1])
+        dp = [[0 for _ in range(len(costs[0]))] for _ in range(len(costs))]
+        for i in range(len(costs)):
+            for j in range(3):
+                dp[i][j] = min(dp[i-1][k] for k in range(3) if k != j) + costs[i][j]
+        return min(dp[-1])
 
 sol = Solution()
 costs =[[1, 2, 3],
         [3, 2, 1],
         [3, 2, 3]]
 print(sol.minCost(costs))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

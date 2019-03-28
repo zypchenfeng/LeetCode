@@ -7,14 +7,13 @@ class Solution(object):
         '''
         if not n or not k:
             return 0
-        diff = k           # if only one post, then no way to pain it the same
-        same = 0
-        res = same + diff
-        for i in range(2, n+1):  # from 2nd post
-           same = diff           # if the ith post need to be the same as previous color, then choices also the same as previous
-           diff = res*(k-1)      # since it needs to be different, so only has k-1 choices
-           res = same + diff     # the result will be merge of paint the same and different
-        return res
+        if n == 1:
+            return k
+        dp = [k]*n
+        dp[1] = k + k*(k-1)
+        for i in range(2, n):
+            dp[i] = (dp[i-2] + dp[i-1])*(k-1)
+        return dp[-1]
 
 sol = Solution()
 n = 2
